@@ -1,0 +1,38 @@
+<odoo>
+    <record id="view_sale_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <!-- Add buttons for each state -->
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="action_confirm_sale"
+                            string="Confirm Sale"
+                            class="btn-primary"
+                            type="object"
+                            options="{'invisible': [('show_confirm_sale_button', '=', False)]}"/>
+                    <button name="action_approve_reservation"
+                            string="Approve Reservation"
+                            class="btn-primary"
+                            type="object"
+                            options="{'invisible': [('show_approve_reservation_button', '=', False)]}"/>
+                    <button name="action_approve_contract"
+                            string="Approve Contract"
+                            class="btn-primary"
+                            type="object"
+                            options="{'invisible': [('show_approve_contract_button', '=', False)]}"/>
+                    <button name="action_done"
+                            string="Mark as Collected"
+                            class="btn-primary"
+                            type="object"
+                            options="{'invisible': [('show_done_button', '=', False)]}"/>
+                    <button name="action_cancel"
+                            string="Cancel"
+                            class="btn-danger"
+                            type="object"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+</odoo>
